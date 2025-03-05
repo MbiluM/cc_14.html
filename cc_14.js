@@ -14,11 +14,19 @@ function addSupportTicket(customerName, issueDescription, priorityLevel) {
     
     const resolveButton = document.createElement('button'); //"Resolve" button
     resolveButton.textContent = 'Resolve';
+
+    const editButton = document.createElement('button');
+    editButton.textContent = 'Edit';
     
-    resolveButton.addEventListener('click', function() { // Event listener to remove the ticket when clicked
+    resolveButton.addEventListener('click', function(event) { // Event listener to remove the ticket when clicked
         ticket.remove();
+        event.stopPropagation();
+
+        ticket.remove
     });
-    
+    editButton.addEventListener('click', function(event) {
+        event.stopPropagation(); // Prevent from bubbling
+    });
     ticket.appendChild(customerHeading); // Append all elements <div>
     ticket.appendChild(issueParagraph);
     ticket.appendChild(priorityLabel);
