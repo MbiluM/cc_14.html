@@ -36,7 +36,12 @@ function highlightHighPriorityTickets() { // Function to highlight all high-prio
         ticket.style.border = '2px solid red';  // Red border
         ticket.style.padding = '10px';  // Padding for better visibility
     });
-};
+}
+const ticketContainer = document.getElementById('ticketContainer'); //event listener for event bubbling
+ticketContainer.addEventListener('click', function(event) {
+    console.log('A ticket was clicked!');
+    event.topPropagation()
+});
 
 // Test info
 addSupportTicket('John Doe', 'Unable to access account', 'High');
